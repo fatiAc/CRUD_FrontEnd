@@ -19,7 +19,12 @@
     "@angular/platform-browser": "~8.2.9",
     "@angular/platform-browser-dynamic": "~8.2.9",
     "@angular/router": "~8.2.9",
+    "angular-font-awesome": "^3.1.2",
+    "jqwidgets-ng": "^10.0.2",
+    "ng-multiselect-dropdown": "^0.2.10",
+    "ngx-bootstrap": "^5.6.1",
     "rxjs": "~6.4.0",
+    "sweetalert2": "^9.17.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

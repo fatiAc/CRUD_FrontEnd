@@ -1,0 +1,47 @@
+<div class="container"><br>
+  <div class="card">
+    <div class="card-header bg-info">Recherche par critères</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="dateMin">De :</label>
+          <input [(ngModel)]="product.dateMin" type="date" class="form-control" id="dateMin">
+        </div>
+        <div class="col-sm-6">
+          <label for="dateMax">A :</label>
+          <input [(ngModel)]="product.dateMax" type="date" class="form-control" id="dateMax">
+        </div>
+        <div class="col-sm-6">
+          <label>Catégorie:</label>
+          <ng-multiselect-dropdown
+            [placeholder]="'Catégorie'"
+            [data]="categorieDroDown.data"
+            [(ngModel)]="categorieDroDown.selected"
+            [settings]="categorieDroDown.settings"
+            (onSelect)="product.ID_CATEGORIE = categorieDroDown.selected[0].ID_CATEGORIE"
+            (onDeSelect)="product.ID_CATEGORIE = null">
+          </ng-multiselect-dropdown>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="card-footer">
+    <button (click)="search()" class="btn btn-sm btn-primary"><i
+      class="fa fa-search"></i> Chercher
+    </button>
+    <button class="btn btn-sm btn-danger"><i
+      class="fa fa-refresh"></i> Refraichir
+    </button>
+  </div>
+  <div class="card-body">
+    <jqxGrid *ngIf="productsTable.dataSource != null"
+             [theme]="'bootstrap'" [width]="'100%'" [source]="productsTable.dataAdapter"
+             [columns]="productsTable.columns" [localization]="localization"
+             [pageable]="true" [autoheight]="true" [autorowheight]="true"
+             [sortable]="true" [altrows]="true" [columnsresize]="true" [enabletooltips]="true"
+             [filterable]="true" [showfilterrow]="true" #productGrid>
+    </jqxGrid>
+  </div>
+</div>
+
